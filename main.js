@@ -7,7 +7,7 @@ const {token} = settings;
 
 const bot = new TelegramAPI(token, {polling: true});
 
-const caloriesRegEx = /"([А-Яа-я]+)"\s(\d+)/;
+const caloriesRegEx = /"([А-Яа-я\s]+)"\s(\d+)/;
 const start = () => {
     bot.on("message", async msg => {
         switch (msg.text) {
