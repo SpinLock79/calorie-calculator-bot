@@ -12,8 +12,8 @@ const start = () => {
     bot.on("message", async msg => {
         switch (msg.text) {
             case "/start": {
-                await bot.sendMessage(msg.chat.id,
-                    `Здравствуйте, ${msg.chat.first_name} ${msg.chat.last_name}\n`+
+                const user_name = `${msg.chat.first_name ? msg.chat.first_name : ""} ${msg.chat.last_name ? msg.chat.last_name : ""}`;
+                await bot.sendMessage(msg.chat.id, `Здравствуйте, ${user_name}\n` +
                     `Введите команду /calories "название_продукта" вес_в_граммах`
                 );
                 break;
