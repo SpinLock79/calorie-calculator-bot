@@ -7,14 +7,14 @@ const {token} = settings;
 
 const bot = new TelegramAPI(token, {polling: true});
 
-const caloriesRegEx = /\/calories\s([А-Яа-я]+)\s(\d+)/;
+const caloriesRegEx = /\/calories\s"([А-Яа-я]+)"\s(\d+)/;
 const start = () => {
     bot.on("message", async msg => {
         switch (msg.text) {
             case "/start": {
                 await bot.sendMessage(msg.chat.id,
                     `Здравствуйте, ${msg.chat.first_name} ${msg.chat.last_name}\n`+
-                    `Введите команду /calories название_продукта вес_в_граммах`
+                    `Введите команду /calories "название_продукта" вес_в_граммах`
                 );
                 break;
             }
